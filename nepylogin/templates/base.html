@@ -1,12 +1,24 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  {% comment %} <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> {% endcomment %}
+	<!-- Font Awesome CSS -->  <!-- meta -->
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+  <!-- My Style CSS -->
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
   <title>{% block title %}Django Login{% endblock %}</title>
 </head>
+
 <body>
   <header>
-    <h1>Basic Login</h1>
     {% if user.is_authenticated %}
       Hi {{ user.username }}!
       <a href="{% url 'logout' %}">logout</a>
@@ -14,14 +26,21 @@
       <a href="{% url 'login' %}">login</a>
     {% endif %}
   </header>
-  <hr>
+
+
   <main>
     {% block content %}
     {% endblock %}
   </main>
-  <hr>
+
+
   <footer>
-    <a href="https://www.nepy.pe">@statsconchris</a>
-  </footer>
+    
+  </footer> 
+
+  <!-- Scripts -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
 </body>
 </html>

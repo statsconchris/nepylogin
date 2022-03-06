@@ -3,10 +3,70 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
+
+
+  <div class="container">
+    <div class="row flex-center-nepy min-vh-100 py-6">
+      <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5 col-xxl-4">
+        <div class="card">
+          <div class="card-body p-4 p-sm-5">
+            <div class="row flex-between-center-nepy mb-2">
+              <div class="col-auto">
+                <h5>Log in</h5>
+              </div>
+            </div>
+            <form method="POST">
+              {% csrf_token %}
+              <div class="mb-3">
+                <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username" required>
+              </div>
+              <div class="mb-3">
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-primary d-block w-100 mt-3" type="submit" name="submit">Log in</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  {% comment %} <div class="login">
+    <div class="container my-4">
+      <div class="row">
+        
+        <form class="col-12" method="POST">
+          {% csrf_token %}
+  
+          <div class="text-center mb-4">
+            <img src="{% static 'img/nepylogo.png' %}" alt="logo" style="width: 96px; height: 96px;" class="mb-4" /> 
+            <h1 class="h3 mb-3 font-weight-normal">Nepy</h1>
+          </div>
+  
+          <div class="form-label-group">
+            <input type="text" name="username" id="inputUsername" class="form-control" placeholder="Username"
+              required>
+            <label for="inputUsername">Username</label>
+          </div>
+  
+          <div class="form-label-group">
+            <input type="password" name="password" id="inputPassword" class="form-control"
+              placeholder="Password" required>
+            <label for="inputPassword">Password</label>
+          </div>
+          
+          <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+
+        </form>
+
+
+      </div>
+    </div>
+  </div> {% endcomment %}
+
 {% endblock %}
