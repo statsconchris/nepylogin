@@ -23,7 +23,7 @@
       Hi {{ user.username }}!
       <a href="{% url 'logout' %}">logout</a>
     {% else %}
-      <a href="{% url 'login' %}">login</a>
+      <a href="{% url 'two_factor:login' %}">login</a>
     {% endif %}
   </header>
 

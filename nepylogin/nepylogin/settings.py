@@ -40,6 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_otp', #2fa
+    'django_otp.plugins.otp_static',#2fa
+    'django_otp.plugins.otp_totp', #2fa
+    'two_factor', #2fa
+    'otp_yubikey',
     'nepylogin',
 ]
 
@@ -51,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',#2fa
+    'django_otp.middleware.OTPMiddleware',#2fa
 ]
 
 ROOT_URLCONF = 'nepylogin.urls'
@@ -128,5 +135,7 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATIC_URL = 'static/'
+
+LOGIN_URL = 'two_factor:login'
 
 LOGIN_REDIRECT_URL = 'home'
